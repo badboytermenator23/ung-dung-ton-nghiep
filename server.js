@@ -23,6 +23,11 @@ app.get('/', (req, res) => {
   res.send('API đang hoạt động!');
 });
 
+// Handle unsupported routes
+app.use((req, res) => {
+  res.status(404).send('404 - Không tìm thấy trang'); // Send 404 response for unsupported routes
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server đang chạy tại http://localhost:${PORT}`);
