@@ -9,8 +9,9 @@ const PORT = process.env.PORT || 5000;
 app.use(cors()); // Enable CORS for all requests
 app.use(express.json()); // Parse incoming JSON requests
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/tonnghiep', { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to MongoDB with updated connection string
+const mongoURI = 'mongodb://localhost:27017/tonnghiep'; // Local MongoDB URI
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => {
     console.error('MongoDB connection error:', err);
